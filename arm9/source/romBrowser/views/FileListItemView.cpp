@@ -88,10 +88,12 @@ void FileListItemView::Draw(GraphicsContext& graphicsContext)
             .WithPriority(graphicsContext.GetPriority())
             .Build(selectorOams[6]);
 
+        _fileNameLabel->SetBackgroundColor(selectorColor);
         _fileNameLabel->SetForegroundColor(_materialColorScheme->onSecondaryContainer);
     }
     else
     {
+        _fileNameLabel->SetBackgroundColor(_materialColorScheme->surfaceBright);
         _fileNameLabel->SetForegroundColor(_materialColorScheme->onSurface);
     }
 
