@@ -47,6 +47,17 @@ void FileListItemView::Draw(GraphicsContext& graphicsContext)
     ViewContainer::Draw(graphicsContext);
 }
 
+SharedPtr<View> FileListItemView::MoveFocus(const SharedPtr<View>& currentFocus,
+    FocusMoveDirection direction, View* source)
+{
+    if (GetParent())
+    {
+        return GetParent()->MoveFocus(SharedFromThis(), direction, this);
+    }
+
+    return nullptr;
+}
+
 bool FileListItemView::HandleInput(const InputProvider& inputProvider, FocusManager& focusManager)
 {
     return _inputHandler.HandleInput(inputProvider, focusManager)
