@@ -1,5 +1,4 @@
 #include "common.h"
-#include "core/math/RgbMixer.h"
 #include "gui/GraphicsContext.h"
 #include "gui/input/InputProvider.h"
 #include "themes/material/MaterialColorScheme.h"
@@ -35,15 +34,17 @@ void FileListItemView::Draw(GraphicsContext& graphicsContext)
     if (!graphicsContext.IsVisible(GetBounds()))
         return;
 
-    auto backgroundColor = _materialColorScheme->GetColor(md::sys::color::surfaceContainerLow);
     if (IsFocused())
     {
-        backgroundColor = RgbMixer::Lerp(
-            backgroundColor, _materialColorScheme->onSurface, 10, 100);
+        _fileNameLabel->SetBackgroundColor(_materialColorScheme->mainIconBg);
+        _fileNameLabel->SetForegroundColor(_materialColorScheme->onSecondaryContainer);
+    }
+    else
+    {
+        _fileNameLabel->SetBackgroundColor(_materialColorScheme->surfaceBright);
+        _fileNameLabel->SetForegroundColor(_materialColorScheme->onSurface);
     }
 
-    _fileNameLabel->SetBackgroundColor(backgroundColor);
-    _fileNameLabel->SetForegroundColor(_materialColorScheme->onSurface);
     ViewContainer::Draw(graphicsContext);
 }
 
