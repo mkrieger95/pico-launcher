@@ -13,6 +13,7 @@ class FileListItemView : public ViewContainer
     SHARED_ONLY(FileListItemView)
 
 public:
+    void InitVram(const VramContext& vramContext) override;
     void Update() override;
     void Draw(GraphicsContext& graphicsContext) override;
 
@@ -44,6 +45,7 @@ private:
     SharedPtr<Label2DView> _fileNameLabel;
     RomBrowserItemInputHandler _inputHandler;
     const MaterialColorScheme* _materialColorScheme;
+    u32 _selectorVramOffset = 0;
 
     FileListItemView(std::unique_ptr<IRomBrowserItemViewModel> viewModel,
         const MaterialColorScheme* materialColorScheme, const IFontRepository* fontRepository);
