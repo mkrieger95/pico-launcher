@@ -40,6 +40,12 @@ public:
         return BannerListItemView::VramToken(0);
     }
 
+    SharedPtr<FileListItemView> CreateFileListItemView(
+        std::unique_ptr<IRomBrowserItemViewModel> viewModel) const override
+    {
+        return FileListItemView::CreateShared(std::move(viewModel), _materialColorScheme, _fontRepository);
+    }
+
     SharedPtr<AppBarView> CreateAppBarView(int x, int y, AppBarView::Orientation orientation,
         int startButtonCount, int endButtonCount) const override
     {

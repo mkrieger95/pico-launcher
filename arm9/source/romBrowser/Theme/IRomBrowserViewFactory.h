@@ -3,6 +3,7 @@
 #include "core/SharedPtr.h"
 #include "../views/IconGridItemView.h"
 #include "../views/BannerListItemView.h"
+#include "../views/FileListItemView.h"
 #include "../views/AppBarView.h"
 #include "../views/BannerView.h"
 #include "gui/views/RecyclerViewBase.h"
@@ -27,6 +28,9 @@ public:
         VBlankTextureLoader* vblankTextureLoader) const = 0;
     virtual BannerListItemView::VramToken UploadBannerListItemViewGraphics(
         const VramContext& vramContext) const { return BannerListItemView::VramToken(0); }
+
+    virtual SharedPtr<FileListItemView> CreateFileListItemView(
+        std::unique_ptr<IRomBrowserItemViewModel> viewModel) const = 0;
 
     virtual SharedPtr<AppBarView> CreateAppBarView(int x, int y, AppBarView::Orientation orientation,
         int startButtonCount, int endButtonCount) const = 0;

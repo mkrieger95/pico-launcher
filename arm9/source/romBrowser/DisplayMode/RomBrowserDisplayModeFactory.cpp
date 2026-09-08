@@ -2,6 +2,7 @@
 #include "RomBrowserHorizontalIconGridDisplayMode.h"
 #include "RomBrowserVerticalIconGridDisplayMode.h"
 #include "RomBrowserBannerListDisplayMode.h"
+#include "RomBrowserFileListDisplayMode.h"
 #include "RomBrowserHorizontalCoverFlowDisplayMode.h"
 #include "RomBrowserDisplayModeFactory.h"
 
@@ -21,6 +22,10 @@ const RomBrowserDisplayMode* RomBrowserDisplayModeFactory::GetRomBrowserDisplayM
         case RomBrowserLayout::BannerList:
         {
             return &RomBrowserBannerListDisplayMode::sInstance;
+        }
+        case RomBrowserLayout::FileList:
+        {
+            return &RomBrowserFileListDisplayMode::sInstance;
         }
         case RomBrowserLayout::CoverFlow:
         {

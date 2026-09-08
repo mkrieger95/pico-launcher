@@ -37,12 +37,13 @@
 #define FILTERS_LABEL_X     20
 #define FILTERS_LABEL_Y     112
 
-static RomBrowserLayout sRomBrowserDisplayModes[4] =
+static RomBrowserLayout sRomBrowserDisplayModes[5] =
 {
     [0] = RomBrowserLayout::HorizontalIconGrid,
     [1] = RomBrowserLayout::VerticalIconGrid,
     [2] = RomBrowserLayout::BannerList,
-    [3] = RomBrowserLayout::CoverFlow
+    [3] = RomBrowserLayout::FileList,
+    [4] = RomBrowserLayout::CoverFlow
 };
 
 static RomBrowserSortMode sRomBrowserSortModes[4] =
@@ -152,7 +153,8 @@ void DisplaySettingsBottomSheetView::InitVram(const VramContext& vramContext)
         _layoutOptions[0]->SetIconVramOffset(LoadIcon(*objVramManager, hGridIconTiles, hGridIconTilesLen));
         _layoutOptions[1]->SetIconVramOffset(LoadIcon(*objVramManager, vGridIconTiles, vGridIconTilesLen));
         _layoutOptions[2]->SetIconVramOffset(LoadIcon(*objVramManager, bannerListIconTiles, bannerListIconTilesLen));
-        _layoutOptions[3]->SetIconVramOffset(LoadIcon(*objVramManager, coverflowIconTiles, coverflowIconTilesLen));
+        _layoutOptions[3]->SetIconVramOffset(LoadIcon(*objVramManager, listIconTiles, listIconTilesLen));
+        _layoutOptions[4]->SetIconVramOffset(LoadIcon(*objVramManager, coverflowIconTiles, coverflowIconTilesLen));
 
         // sort options
         _sortOptions[0]->SetIconVramOffset(LoadIcon(*objVramManager, sortNameAscendingIconTiles, sortNameAscendingIconTilesLen));
